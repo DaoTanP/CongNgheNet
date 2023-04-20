@@ -15,9 +15,9 @@ namespace BaiThucHanh11.Controllers
         private Model1 db = new Model1();
 
         // GET: DSNVs
-        public ActionResult Index()
+        public ActionResult Index(string name = "")
         {
-            return View(db.DSNVs.ToList());
+            return View(db.DSNVs.Where(nv => nv.HoTen.Contains(name)).ToList());
         }
 
         // GET: DSNVs/Details/5
